@@ -1,0 +1,118 @@
+.appbar-bottom {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0a0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  justify-content: space-between; /* Sağ ve sol arasında boşluk bırak */
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+
+  border-radius: 4px;
+  padding: 5px;
+  transition: all 0.3s ease;
+  justify-content: flex-end; /* Sağ tarafa hizala */
+}
+
+.searchBox:hover {
+  border-color: #999;
+}
+
+.textBox {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 5px;
+  
+}
+
+.searchButton {
+  background-color: #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+  background-color: #999;
+}
+
+.viewToggle,
+.sortIcon,
+.filterIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000000;
+}
+
+.sortIcon svg,
+.filterIcon svg {
+  transition: all 0.3s ease;
+}
+
+.sortText,
+.filterText {
+  font-size: 14px;
+  margin-right: 5px;
+  transition: all 0.3s ease;
+}
+
+.sortIcon.active svg {
+  transform: rotate(180deg);
+}
+
+.sortIcon.active,
+.filterIcon.active,
+.viewToggle:hover,
+.sortIcon:hover,
+.filterIcon:hover {
+  color: #003bea;
+}
+
+/* Özel animasyonlar */
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

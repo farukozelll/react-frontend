@@ -1,0 +1,67 @@
+.country {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .country-flag {
+    flex: 1;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .country-info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .country-info {
+    flex: 2;
+    padding: 20px;
+    color: #000000;
+  }
+  
+  .info-label {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .info-value {
+    font-weight: normal;
+    
+  }
+  
+  .deleteButton {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .goBackButton {
+    padding: 10px 20px;
+    background-color: rgb(255, 179, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-start; /* Yeni stil */
+  }
+  
+  .flag-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+  
