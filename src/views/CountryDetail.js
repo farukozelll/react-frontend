@@ -37,6 +37,26 @@ function CountryDetail() {
     }
   };
 
+  const handleDeleteCountry = (id) => {
+    fetch(`/api/${id}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Silme işlemi başarılı
+          // İstediğiniz geri bildirimi gösterebilir veya veriyi yeniden yükleyebilirsiniz
+        } else {
+          // Silme işlemi başarısız
+          // Hata mesajını veya isteği işleyememe durumunu gösterebilirsiniz
+        }
+      })
+      .catch((error) => {
+        // Hata durumu
+        console.error('Error:', error);
+      });
+  };
+  
+
   if (!country) {
     return <div>Ülke bulunamadı.</div>;
   }
@@ -55,11 +75,11 @@ function CountryDetail() {
           <h1>{country.name}</h1>
           <div className="country-info-row">
             <span className="info-label">Country Kodu:</span>
-            <span className="info-value">{country.countryCode}</span>
+            <span className="info-value">{country.id}</span>
           </div>
           <div className="country-info-row">
             <span className="info-label">Native:</span>
-            <span className="info-value">{country.native}</span>
+            <span className="info-value">{country.nativeName}</span>
           </div>
           <div className="country-info-row">
             <span className="info-label">Phone:</span>
@@ -84,12 +104,13 @@ function CountryDetail() {
         </div>
       </div>
 
-      <button className="deleteButton" onClick={handleDelete} disabled={isDeleting}>
-        {isDeleting ? 'Siliniyor...' : 'Sil'}
-      </button>
+     
       <button className="goBackButton" onClick={handleGoBack}>
         Geri
       </button>
+   
+      <button className="deleteButton"onClick={() => handleDelete(countryCode)}> {isDeleting ? 'Siliniyor...' : 'Sil'}</button>
+
     </div>
   );
 }

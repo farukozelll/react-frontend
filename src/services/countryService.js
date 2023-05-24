@@ -14,7 +14,7 @@ export const getCountries = async () => {
 
 export const deleteCountryByCode = async (countryCode) => {
   try {
-    const response = await axios.delete(`${BASE_URL}/countries/${countryCode}`);
+    const response = await axios.delete(`${BASE_URL}/${countryCode}`);
     return response.data;
   } catch (error) {
     console.error('Error deleting country:', error);

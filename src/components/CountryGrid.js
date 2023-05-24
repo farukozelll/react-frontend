@@ -7,6 +7,9 @@ import "../style/AppBar.css"
 import { BsFillEyeFill } from 'react-icons/bs';
 
 function CountryGrid({ countries, onDeleteCountry }) {
+    const handleDelete = (countryId) => {
+        onDeleteCountry(countryId);
+      };
   return (
  
                     <div className="gridView">
@@ -27,7 +30,7 @@ function CountryGrid({ countries, onDeleteCountry }) {
                         <div className="subtitle">
                             <span>{country.phone}</span>
                         </div>
-                        <button className="basketButton">
+                        <button className="basketButton"onClick={() => handleDelete(country.id)}>
                         <BsFillEyeFill className="icon" />
                         </button>
                         </Link>

@@ -23,15 +23,15 @@
   justify-content: space-between;
   flex: 0 0 calc(50% - 10px);
   margin-bottom: 20px;
-  box-sizing: border-box; /* Önemli! */
+  box-sizing: border-box;
 }
 
-
 .filter-content > *:nth-child(odd) {
-  margin-right: 20px; /* Öğelerin arasındaki boşluk */
+  margin-right: 20px;
   flex: 0 0 calc(50% - 10px);
   margin-bottom: 20px;
 }
+
 .filter-close {
   position: absolute;
   top: 10px;
@@ -81,4 +81,30 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .filter-popup {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    padding: 20px;
+  }
+
+  .filter-content {
+    max-width: 100%;
+    flex: 1 0 100%;
+    margin-bottom: 20px;
+  }
+
+  .filter-content > *:nth-child(odd) {
+    margin-right: 0;
+  }
+
+  .filter-close {
+    top: 20px;
+    right: 20px;
+  }
 }

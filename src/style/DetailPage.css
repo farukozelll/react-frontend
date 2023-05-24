@@ -3,6 +3,9 @@
     justify-content: space-between;
     width: 100%;
     overflow: hidden;
+    align-items: center;
+    position: relative;
+   
   }
   
   .country-flag {
@@ -45,8 +48,15 @@
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    margin-right: 10px;
-  }
+    
+    margin-left: auto;
+    position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+  
   
   .goBackButton {
     padding: 10px 20px;
@@ -57,11 +67,40 @@
     font-size: 16px;
     cursor: pointer;
     align-self: flex-start; /* Yeni stil */
+    margin-right: 10px;
+    margin-left: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 20px;
+    margin-right: 100px; /* İsteğe bağlı olarak farklı bir yatay konum belirleyebilirsiniz */
   }
   
   .flag-image {
     width: 300px;
     height: 300px;
     object-fit: cover;
+  }
+  
+
+  @media (max-width: 768px) {
+    .country {
+      flex-wrap: wrap;
+    }
+  
+    .country-flag {
+      flex-basis: 100%;
+      padding: 10px;
+    }
+  
+    .country-info {
+      flex-basis: 100%;
+      padding: 10px;
+    }
+  
+    .flag-image {
+      width: 100%;
+      height: auto;
+    }
   }
   

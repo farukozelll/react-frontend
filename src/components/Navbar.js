@@ -17,9 +17,10 @@ const Navbar = () => {
     <nav className="navbar">
     <Link className="title" to="/">COUNTRIES</Link>
     <div className="menu">    
-      <Link to="/btc"><FaBtc /></Link>
+      
       <Link onClick={toggleisMoon} className='moon'>{isMoon ? <BiMoon /> : <BiSun />}</Link>
     </div>
+    
   </nav>
   );
 };

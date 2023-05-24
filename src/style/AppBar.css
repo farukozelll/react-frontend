@@ -1,24 +1,26 @@
 .appbar-bottom {
   display: flex;
   align-items: center;
-  background-color: #f0f0f0a0;
+  background-color: #006387;
   width: 100%;
   margin: 0 auto;
-  padding: 10px;
+  
   position: sticky;
   top: 0;
   z-index: 1;
-  justify-content: space-between; /* Sağ ve sol arasında boşluk bırak */
+  justify-content: space-between;
+  margin-top: 0;
 }
+
 
 .searchBox {
   display: flex;
   align-items: center;
-
+  flex: 1;
   border-radius: 4px;
   padding: 5px;
   transition: all 0.3s ease;
-  justify-content: flex-end; /* Sağ tarafa hizala */
+
 }
 
 .searchBox:hover {
@@ -26,12 +28,16 @@
 }
 
 .textBox {
-  border: none;
+  border: 1px solid #ccc;  
+  border-radius: 4px; 
   outline: none;
   flex: 1;
-  padding: 5px;
-  
-}
+  padding: 8px 10px; 
+  width: 50%; 
+  font-size: 14px; 
+  }
+
+
 
 .searchButton {
   background-color: #ccc;
@@ -83,7 +89,7 @@
 .viewToggle:hover,
 .sortIcon:hover,
 .filterIcon:hover {
-  color: #003bea;
+  color: #ffffff;
 }
 
 /* Özel animasyonlar */
@@ -114,5 +120,60 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+  .appbar-bottom {
+    flex-wrap: wrap;
+    padding: 10px 5px;
+  }
+
+  .searchBox {
+    margin-bottom: 10px;
+  }
+
+  .viewToggle,
+  .sortIcon,
+  .filterIcon {
+    margin: 5px;
+  }
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  animation: toastAnimation 0.5s ease-in-out;
+}
+
+.toast-message {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.toast-close {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes toastAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -11,25 +11,21 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isNoMatch, setIsNoMatch] = useState(false);
 
-// ---------------------------view-------------------------------------------------------------------------------------------------------------   
   const toggleView = () => {
     setIsListView(!isListView);
   };
-// ---------------------------data-------------------------------------------------------------------------------------------------------------   
-
   useEffect(() => {
+    const fetchCountriesData = async () => {
+      try {
+        const data = await getCountries();
+        setCountries(data);
+      } catch (error) {
+        console.error('Error fetching countries:', error);
+      }
+    };
+  
     fetchCountriesData();
   }, []);
-
-  const fetchCountriesData = async () => {
-    try {
-      const data = await getCountries();
-      setCountries(data);
-    } catch (error) {
-      console.error('Error fetching countries:', error);
-    }
-  };
-  // ---------------------------search-------------------------------------------------------------------------------------------------------------   
 
   useEffect(() => {
     handleSearch(searchTerm);
@@ -45,7 +41,6 @@ function Home() {
     setFilteredData(filteredCountries);
     setIsNoMatch(filteredCountries.length === 0);
   };
-    // ---------------------------delete-------------------------------------------------------------------------------------------------------------   
 
   const handleDeleteCountry = async (countryCode) => {
     try {
@@ -59,16 +54,19 @@ function Home() {
 
   return (
     <div className="container">
-      <AppBar isListView={isListView} toggleView={toggleView}  countries={countries}  
-      setFilteredData={setFilteredData}  setSearchTerm={setSearchTerm}  />
+      <AppBar
+        isListView={isListView}
+        toggleView={toggleView}
+        countries={countries}
+        setFilteredData={setFilteredData}
+        setSearchTerm={setSearchTerm}
+      />
       {isNoMatch ? (
         <div>Eşleşen ülke bulunamadı.</div>
+      ) : isListView ? (
+        <CountryList countries={filteredData.length > 0 ? filteredData : countries} onDeleteCountry={handleDeleteCountry} />
       ) : (
-        isListView ? (
-          <CountryList  countries={filteredData.length > 0 ? filteredData : countries} onDeleteCountry={handleDeleteCountry}  />
-        ) : (
-          <CountryGrid countries={filteredData.length > 0 ? filteredData : countries} onDeleteCountry={handleDeleteCountry} />
-        )
+        <CountryGrid countries={filteredData.length > 0 ? filteredData : countries} onDeleteCountry={handleDeleteCountry} />
       )}
     </div>
   );

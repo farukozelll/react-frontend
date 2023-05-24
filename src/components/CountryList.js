@@ -8,6 +8,9 @@ import { FaArrowRight } from 'react-icons/fa';
 
 
 function CountryList({ countries, onDeleteCountry }) {
+  const handleDelete = (countryId) => {
+    onDeleteCountry(countryId);
+  };
   return (
  
           <div className="listView">
@@ -22,7 +25,7 @@ function CountryList({ countries, onDeleteCountry }) {
               </div>
               <div className="listContent">
                 <Link key={country.id} to={`/country/${country.id}`} className="listText">
-                  <strong className="listName">{country.name}</strong>
+                  <strong className="listName">{country.name}<span>({country.id})</span></strong>
                   <strong className="listPhone">
                     
                     {country.phone}
@@ -30,7 +33,7 @@ function CountryList({ countries, onDeleteCountry }) {
                 </Link>
                 <div className="line"></div>
                 <Link to={`/country/${country.id}`}>
-                  <button className="listDetailsButton">
+                  <button className="listDetailsButton"onClick={() => handleDelete(country.id)}>
                 <FaArrowRight className="icon" />
                   </button>
                 </Link>
