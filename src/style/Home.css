@@ -34,3 +34,8 @@
     border-radius: 0;
   }
 }
+.no-match {
+  margin: 20px;
+  font-weight: bold;
+  color: red;
+}

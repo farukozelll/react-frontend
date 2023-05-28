@@ -20,12 +20,13 @@
   border-radius: 4px;
   padding: 5px;
   transition: all 0.3s ease;
-
+  
 }
 
 .searchBox:hover {
   border-color: #999;
 }
+
 
 .textBox {
   border: 1px solid #ccc;  
@@ -33,11 +34,8 @@
   outline: none;
   flex: 1;
   padding: 8px 10px; 
-  width: 50%; 
-  font-size: 14px; 
-  }
-
-
+  font-size: 12px;
+}
 
 .searchButton {
   background-color: #ccc;

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../style/Navbar.css';
 import { Link } from "react-router-dom";
-import { FaBtc } from 'react-icons/fa';
 import {BiMoon,BiSun} from 'react-icons/bi';
 
 const Navbar = () => {
@@ -17,7 +16,6 @@ const Navbar = () => {
     <nav className="navbar">
     <Link className="title" to="/">COUNTRIES</Link>
     <div className="menu">    
-      
       <Link onClick={toggleisMoon} className='moon'>{isMoon ? <BiMoon /> : <BiSun />}</Link>
     </div>
     

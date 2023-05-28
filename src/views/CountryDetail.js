@@ -32,30 +32,9 @@ function CountryDetail() {
       } catch (error) {
         console.error('Silme işlemi sırasında bir hata oluştu:', error);
         setIsDeleting(false);
-        // Toast mesajı veya hata ile ilgili bir bildirim gösterilebilir
       }
     }
   };
-
-  const handleDeleteCountry = (id) => {
-    fetch(`/api/${id}`, {
-      method: 'DELETE',
-    })
-      .then((response) => {
-        if (response.ok) {
-          // Silme işlemi başarılı
-          // İstediğiniz geri bildirimi gösterebilir veya veriyi yeniden yükleyebilirsiniz
-        } else {
-          // Silme işlemi başarısız
-          // Hata mesajını veya isteği işleyememe durumunu gösterebilirsiniz
-        }
-      })
-      .catch((error) => {
-        // Hata durumu
-        console.error('Error:', error);
-      });
-  };
-  
 
   if (!country) {
     return <div>Ülke bulunamadı.</div>;

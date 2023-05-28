@@ -8,6 +8,8 @@ const FilterPopup = ({ isOpen, toggleFilter, applyFilter }) => {
   const [selectedContinents, setSelectedContinents] = useState([]);
   const [selectedCurrencies, setSelectedCurrencies] = useState([]);
   const [phoneCode, setPhoneCode] = useState('');
+  const [isNoMatch, setNoMatch] = useState(false);
+
 
   const handleApplyFilter = async () => {
     try {
@@ -18,12 +20,22 @@ const FilterPopup = ({ isOpen, toggleFilter, applyFilter }) => {
           continent: selectedContinents[0]
         }
       });
-      applyFilter(response.data);
+  
+      const filteredCountries = response.data;
+      applyFilter(filteredCountries);
+  
+      if (filteredCountries.length === 0) {
+        setNoMatch(true);
+      } else {
+        setNoMatch(false);
+      }
     } catch (error) {
       console.error('Error filtering countries:', error);
     }
+  
     toggleFilter();
   };
+  
 
   const continents = [
     { value: 'null', label: 'Select' },
@@ -72,8 +84,11 @@ const FilterPopup = ({ isOpen, toggleFilter, applyFilter }) => {
   return (
     <div className={`filter-popup ${isOpen ? 'open' : ''}`}>
       <div className="filter-content">
+      <button className="filter-close" onClick={handleFilterClose}>
+        <AiOutlineCloseCircle />
+      </button>
         <div className="filter-field">
-          <span className="filter-icon">🌎</span> Continent<span className="filter-icon">🗺️</span>
+          <span className="filter-icon">🌎</span> Continent🗺️<span className="filter-icon"></span>
           <select multiple value={selectedContinents} onChange={handleContinentChange} className="filter-select">
             {continents.map((continent) => (
               <option key={continent.value} value={continent.value}>
@@ -81,9 +96,9 @@ const FilterPopup = ({ isOpen, toggleFilter, applyFilter }) => {
               </option>
             ))}
           </select>
-        </div>
-        <div className="filter-field">
-          <span className="filter-icon">💱</span> Currency<span className="filter-icon">💵</span>
+          <hr/>
+       
+          <span className="filter-icon">💱</span>Currency<span className="filter-icon">💵</span>
           <select multiple value={selectedCurrencies} onChange={handleCurrencyChange} className="filter-select">
             {currencies.map((currency) => (
               <option key={currency.value} value={currency.value}>
@@ -91,18 +106,17 @@ const FilterPopup = ({ isOpen, toggleFilter, applyFilter }) => {
               </option>
             ))}
           </select>
-        </div>
-        <div className="filter-field">
-          <span className="filter-icon">☎️</span> Phone Code <span className="filter-icon">📞</span>
+          <hr/>
+          <span className="filter-icon">☎️</span> Phone Code📞 <span className="filter-icon"></span>
           <input type="text" value={phoneCode} onChange={handlePhoneCodeChange} className="filter-input" />
         </div>
-      </div>
-      <button className="filter-close" onClick={handleFilterClose}>
-        <AiOutlineCloseCircle />
-      </button>
-      <div className="filter-actions">
-        <button onClick={handleApplyFilter}>Filtrele</button>
-      </div>
+           <div className="filter-actions">
+                <button onClick={handleApplyFilter}>Filtrele</button>
+           </div>
+        </div>
+     
+    
+     
     </div>
   );
 };
