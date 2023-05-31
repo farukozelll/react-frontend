@@ -3,16 +3,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './views/Home';
 import CountryDetail from './views/CountryDetail';
 import Navbar from './components/Navbar';
-
-
+import CountriesPage from './components/CountriesPage';
 
 function App() {
   return (
     <Router>
-    <Navbar/>
+      <Navbar />
       <Routes>
-          <Route exact path="/" component={Home} element={<Home />} />   
-          <Route path="country/:countryCode" component={CountryDetail} element={<CountryDetail />} />
+        <Route exact path="/" element={<Home />} />
+        <Route path="country/:countryCode" element={<CountryDetail />} />
+        <Route path="countries" element={<CountriesPage />} />
       </Routes>
     </Router>
   );

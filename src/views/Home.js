@@ -12,8 +12,7 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isNoMatch, setIsNoMatch] = useState(false);
-
-
+ 
 
 
   const toggleView = () => {

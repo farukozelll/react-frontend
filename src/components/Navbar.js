@@ -15,7 +15,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
     <Link className="title" to="/">COUNTRIES</Link>
-    <div className="menu">    
+    <Link to="Countries">XX</Link> 
+    <div className="menu">  
+     
       <Link onClick={toggleisMoon} className='moon'>{isMoon ? <BiMoon /> : <BiSun />}</Link>
     </div>
     
